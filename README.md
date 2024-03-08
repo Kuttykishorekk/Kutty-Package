@@ -56,9 +56,50 @@ moving_average = calculate_moving_average(df_no_outliers['your_time_series_colum
 anomalies = detect_anomalies(df_no_outliers['your_time_series_column'])
 ```
 
-## Dependencies
+Enhancements and New Features
+-----------------------------
 
-Kutty depends on several Python libraries including pandas, numpy, scipy, plotly, and statsmodels.
+1. Cleaning Module Enhancements:
+
+   - preprocess_data_for_ml: Function introduced for preprocessing data, including feature scaling and
+     encoding, preparing the dataset for machine learning models.
+
+2. Visualization Module Enhancements:
+
+   - create_multi_variable_plot: Function for creating complex plots that visualize relationships between
+     multiple variables.
+
+3. Time Series Module Enhancements:
+
+   - arima_forecast: A new function is added for time series forecasting using the ARIMA model.
+   - prophet_forecast: Function introduced for forecasting using the Prophet model, suitable for datasets
+     with strong seasonal effects.
+
+Usage
+-----
+
+Here are brief examples showing how to use the new functionalities:
+
+# Preprocess data for machine learning
+from kutty.cleaning import preprocess_data_for_ml
+df_processed = preprocess_data_for_ml(df)
+
+# Create a multi-variable plot
+from kutty.visualization import create_multi_variable_plot
+create_multi_variable_plot(df, 'category_column', ['feature1', 'feature2', 'feature3'])
+
+# Forecasting with ARIMA
+from kutty.timeseries import arima_forecast
+forecast = arima_forecast(series, order=(1, 1, 1), steps=5)
+
+# Forecasting with Prophet
+from kutty.timeseries import prophet_forecast
+forecast_df = prophet_forecast(df[['ds', 'y']], periods=5, freq='D')
+
+Dependencies
+------------
+
+Kutty depends on the following Python libraries: pandas, scipy, numpy, plotly, statsmodels, sklearn, and fbprophet. Ensure these are installed in your environment.
 
 ## Contributing
 

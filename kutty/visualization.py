@@ -23,3 +23,9 @@ def create_interactive_time_series(df, x_column, y_column, title='Time Series Pl
                       xaxis_title=x_column,
                       yaxis_title=y_column)
     fig.show()
+
+#----------------------------------------------------------------
+def create_multi_variable_plot(df, x_column, y_columns, title="Multi Variable Plot"):
+    fig = px.scatter_matrix(df, dimensions=y_columns, color=x_column)
+    fig.update_layout(title=title)
+    fig.show()
