@@ -81,20 +81,28 @@ Usage
 Here are brief examples showing how to use the new functionalities:
 
 # Preprocess data for machine learning
+```python
 from kutty.cleaning import preprocess_data_for_ml
 df_processed = preprocess_data_for_ml(df)
+```
 
 # Create a multi-variable plot
+```python
 from kutty.visualization import create_multi_variable_plot
 create_multi_variable_plot(df, 'category_column', ['feature1', 'feature2', 'feature3'])
+```
 
 # Forecasting with ARIMA
+```python
 from kutty.timeseries import arima_forecast
 forecast = arima_forecast(series, order=(1, 1, 1), steps=5)
+```
 
 # Forecasting with Prophet
+```python
 from kutty.timeseries import prophet_forecast
 forecast_df = prophet_forecast(df[['ds', 'y']], periods=5, freq='D')
+```
 
 Dependencies
 ------------
